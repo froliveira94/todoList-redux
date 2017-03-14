@@ -3,6 +3,8 @@ import React from 'react';
 import Todos from './todos/todos';
 import Menu from './common/menu';
 
+import AppRoutes from './routes';
+
 const App = () => {
     return (
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -12,7 +14,7 @@ const App = () => {
             <div className="mdl-grid">
               <div className="mdl-cell mdl-cell--3-col"></div>
               <div className="mdl-cell mdl-cell--6-col">
-                <Todos />
+                <AppRoutes />
               </div>
               <div className="mdl-cell mdl-cell--3-col"></div>
             </div>

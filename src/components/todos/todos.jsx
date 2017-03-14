@@ -15,8 +15,26 @@ class Todos extends Component {
         }
     }
 
+    refresh(description = '') {
+        this.setState({...this.state, description});
+    }
+
+    handleChange = (e) => {
+        this.setState({...this.state, description:e.target.value});
+    }
+
     addTodoItem = () => {
-        console.log('addTodoItem');
+        if(this.state.description.length > 3){
+            const list = this.state.list;
+            const timestamp = Date.now();
+            list.push({
+                id: timestamp,
+                description: this.state.description,
+                done: false
+            });
+            this.setState({...this.state, list});
+            this.refresh();
+        }
     }
 
     handleMarkAsDone = () => {
@@ -34,7 +52,10 @@ class Todos extends Component {
     render() {
         return (
             <div>
-                <TodoForm />
+                <TodoForm
+                description={this.state.description} 
+                addTodoItem={this.addTodoItem}
+                handleChange={this.handleChange} />
                 <div className="todo-card-wide mdl-card mdl-shadow--2dp">
                     <div className="mdl-card__title">
                         <h2 className="mdl-card__title-text">Minhas Tasks</h2>

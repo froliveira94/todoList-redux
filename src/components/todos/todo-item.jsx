@@ -11,7 +11,7 @@ const TodoItem = (props) => {
             </span>
             <span className="mdl-list__item-secondary-action">
                 <CircularButton colored={true} icon="add" onClick={() => props.handleMarkAsDone()} />
-                <CircularButton colored={false} icon="replay" onClick={() => props.handleMarkAsPanding()}/>
+                <CircularButton colored={false} icon="replay" onClick={() => props.handleMarkAsPending()}/>
                 <CircularButton colored={true} icon="delete" onClick={() => props.handleRemove()}/>
             </span>
         </li>
