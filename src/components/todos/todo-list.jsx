@@ -2,13 +2,23 @@ import React from 'react';
 
 import TodoItem from './todo-item';
 
-const TodoList = () => {
-    const list = [{id:1, description:'É mentira?'},{id:2, description:'Mau Mau'}];
+const TodoList = (props) => {
 
+    const renderRows = () => {
+        const list = props.list || [];
+        return list.map(todo => (
+            <TodoItem   key={todo.id} 
+                        todo={todo}  
+                        handleMarkAsDone = {props.handleMarkAsDone}
+                        handleMarkAsPending = {props.handleMarkAsPending}
+                        handleRemove = {props.handleRemove} />
+        ));
+    }
+
+    
     return (
         <ul className="demo-list-control mld-list">
-            <TodoItem description="É mintira!!" />
-            <TodoItem description="Felipe" />
+           {renderRows()}
         </ul>
     );
 };
