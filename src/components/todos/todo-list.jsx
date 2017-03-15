@@ -17,7 +17,7 @@ const TodoList = (props) => {
 
     
     return (
-        <ul className="demo-list-control mld-list">
+        <ul className="demo-list-control mdl-list">
            {renderRows()}
         </ul>
     );

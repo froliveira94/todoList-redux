@@ -2,7 +2,6 @@ import React from 'react';
 import CircularButton from '../common/circularButton';
 
 const TodoItem = (props) => {
-    console.log(props);
     const isDone = props.todo.done ? 'done' : '';
     return (
         <li className={`mdl-list__item ${isDone}`}>
