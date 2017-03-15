@@ -10,9 +10,9 @@ const TodoItem = (props) => {
                 {props.todo.description}
             </span>
             <span className="mdl-list__item-secondary-action">
-                <CircularButton colored={true} icon="add" onClick={() => props.handleMarkAsDone()} />
-                <CircularButton colored={false} icon="replay" onClick={() => props.handleMarkAsPending()}/>
-                <CircularButton colored={true} icon="delete" onClick={() => props.handleRemove()}/>
+                <CircularButton hide={props.todo.done} colored={true} icon="done" onClick={() => props.handleMarkAsDone(props.todo)} />
+                <CircularButton hide={!props.todo.done} colored={false} icon="replay" onClick={() => props.handleMarkAsPending(props.todo)}/>
+                <CircularButton hide={!props.todo.done} colored={true} icon="delete" onClick={() => props.handleRemove(props.todo)}/>
             </span>
         </li>
     );

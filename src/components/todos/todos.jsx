@@ -11,7 +11,7 @@ class Todos extends Component {
         super(props);
         this.state = {
             description: '',
-            list: [{id:1, description:'ahuahuhua', done: false}]
+            list: []
         }
     }
 
@@ -37,16 +37,33 @@ class Todos extends Component {
         }
     }
 
-    handleMarkAsDone = () => {
-        console.log('handleMarkAsDone');
+    handleMarkAsDone = (todo) => {
+       const id = todo.id;
+       const list = this.state.list.filter((todo) => {
+           if(todo.id === id) todo.done = true;
+           return todo;
+       });
+
+       this.setState({...this.state, list});
     }
 
-    handleMarkAsPending = () => {
-        console.log('handleMarkAsPending');
+    handleMarkAsPending = (todo) => {
+       const id = todo.id;
+       const list = this.state.list.filter((todo) => {
+           if(todo.id === id) todo.done = false;
+           return todo;
+       });
+
+       this.setState({...this.state, list});
     }
 
-    handleRemove = () => {
-        console.log('handleRemove');
+    handleRemove = (todo) => {
+       const id = todo.id;
+       const list = this.state.list.filter((todo) => {
+           if(todo.id !== id) return todo;
+       });
+
+       this.setState({...this.state, list});
     }
 
     render() {
